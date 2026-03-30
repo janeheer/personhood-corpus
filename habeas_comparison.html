@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Who Gets Habeas Corpus? — Personhood Corpus Project</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,600;1,400&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap');
+
+  :root {
+    --bg: #f5f5f0;
+    --manila: #f0e6c8;
+    --grid: #c4c4b8;
+    --cold: #2b2d42;
+    --form-blue: #d6e4f0;
+    --magenta: #ff006e;
+    --orange: #ff6700;
+    --blue: #3a86ff;
+    --red: #ef233c;
+    --violet: #7b2d8e;
+
+    --green-row: #e8f5e9;
+    --green-border: #4caf50;
+    --green-accent: #2e7d32;
+    --green-bg-detail: #f1f8f2;
+
+    --amber-row: #fff8e1;
+    --amber-border: #ff8f00;
+    --amber-accent: #e65100;
+    --amber-bg-detail: #fffaf0;
+
+    --red-row: #fce4ec;
+    --red-border: #e53935;
+    --red-accent: #b71c1c;
+    --red-bg-detail: #fef5f5;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--cold);
+    font-family: 'IBM Plex Mono', monospace;
+    line-height: 1.6;
+    padding: 2.5rem 2rem;
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  /* ── HEADER ── */
+  header {
+    border-bottom: 3px solid var(--cold);
+    padding-bottom: 1.8rem;
+    margin-bottom: 2.5rem;
+  }
+
+  header h1 {
+    font-family: 'IBM Plex Serif', serif;
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: var(--cold);
+    margin-bottom: 0.2rem;
+    letter-spacing: -0.02em;
+  }
+
+  header .subtitle {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 0.6rem;
+    font-weight: 400;
+  }
+
+  header .latin {
+    font-family: 'IBM Plex Serif', serif;
+    font-style: italic;
+    font-size: 0.95rem;
+    color: var(--violet);
+    margin-bottom: 0.8rem;
+    display: block;
+  }
+
+  .tag-row {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
+  }
+
+  .tag {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    background: var(--cold);
+    color: var(--bg);
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  .tag.tag-hot {
+    background: var(--magenta);
+  }
+
+  /* ── INTRO ── */
+  .intro {
+    margin-bottom: 2.5rem;
+    max-width: 900px;
+  }
+
+  .intro p {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 0.92rem;
+    line-height: 1.75;
+    color: #333;
+    margin-bottom: 0.8rem;
+  }
+
+  .intro strong {
+    color: var(--cold);
+  }
+
+  /* ── LEGEND ── */
+  .legend {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 1.8rem;
+    flex-wrap: wrap;
+    padding: 0.8rem 1.2rem;
+    background: white;
+    border: 1px solid var(--grid);
+    border-radius: 4px;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.78rem;
+    font-family: 'IBM Plex Sans', sans-serif;
+  }
+
+  .legend-swatch {
+    width: 18px;
+    height: 18px;
+    border-radius: 3px;
+    border: 2px solid rgba(0,0,0,0.12);
+  }
+
+  .swatch-green { background: var(--green-row); border-color: var(--green-border); }
+  .swatch-amber { background: var(--amber-row); border-color: var(--amber-border); }
+  .swatch-red { background: var(--red-row); border-color: var(--red-border); }
+
+  /* ── TABLE ── */
+  table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 5px;
+    margin-bottom: 1.5rem;
+  }
+
+  thead th {
+    background: var(--cold);
+    color: var(--bg);
+    padding: 0.85rem 1.1rem;
+    text-align: center;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  thead th:first-child {
+    text-align: left;
+    border-radius: 5px 0 0 5px;
+    min-width: 240px;
+  }
+
+  thead th:last-child {
+    border-radius: 0 5px 5px 0;
+  }
+
+  thead th .th-sub {
+    display: block;
+    font-weight: 300;
+    font-size: 0.62rem;
+    letter-spacing: 0.03em;
+    text-transform: none;
+    opacity: 0.7;
+    margin-top: 0.15rem;
+  }
+
+  tbody tr.data-row {
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  tbody tr.data-row:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  }
+
+  tbody tr.data-row:active {
+    transform: translateY(0);
+  }
+
+  tbody td {
+    padding: 0.8rem 1.1rem;
+    text-align: center;
+    font-size: 0.85rem;
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+    vertical-align: middle;
+    font-family: 'IBM Plex Sans', sans-serif;
+  }
+
+  tbody td:first-child {
+    text-align: left;
+    font-weight: 600;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.82rem;
+    border-left: 5px solid transparent;
+    border-radius: 5px 0 0 5px;
+  }
+
+  tbody td:last-child {
+    border-radius: 0 5px 5px 0;
+    border-right: 1px solid transparent;
+  }
+
+  /* Row color classes */
+  tr.row-green td { background: var(--green-row); }
+  tr.row-green td:first-child { border-left-color: var(--green-border); color: var(--green-accent); }
+
+  tr.row-amber td { background: var(--amber-row); }
+  tr.row-amber td:first-child { border-left-color: var(--amber-border); color: var(--amber-accent); }
+
+  tr.row-red td { background: var(--red-row); }
+  tr.row-red td:first-child { border-left-color: var(--red-border); color: var(--red-accent); }
+
+  /* Cell values */
+  .val-yes { color: var(--green-accent); font-weight: 600; }
+  .val-no { color: var(--red-accent); font-weight: 600; }
+  .val-partial { color: var(--amber-accent); font-weight: 600; font-size: 0.78rem; }
+  .val-na { color: var(--grid); font-style: italic; }
+
+  .click-hint {
+    font-size: 0.6rem;
+    color: var(--grid);
+    font-weight: 400;
+    display: block;
+    margin-top: 0.2rem;
+    font-family: 'IBM Plex Sans', sans-serif;
+    transition: color 0.15s;
+  }
+
+  tr.data-row:hover .click-hint { color: var(--cold); }
+
+  .row-indicator {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    margin-right: 0.4rem;
+    vertical-align: middle;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  tr.data-row.expanded .row-indicator { animation: none; opacity: 0.4; }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+  }
+
+  tr.row-green .row-indicator { background: var(--green-border); }
+  tr.row-amber .row-indicator { background: var(--amber-border); }
+  tr.row-red .row-indicator { background: var(--red-border); }
+
+  /* ── DETAIL PANEL ── */
+  .detail-panel {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.35s ease;
+    opacity: 0;
+  }
+
+  .detail-panel.open {
+    max-height: 2000px;
+    opacity: 1;
+  }
+
+  .detail-inner {
+    margin: 0 0 10px 0;
+    padding: 1.8rem 2rem;
+    background: white;
+    border-left: 5px solid var(--grid);
+    border-radius: 0 6px 6px 0;
+    box-shadow: inset 0 1px 4px rgba(0,0,0,0.06), 0 2px 8px rgba(0,0,0,0.04);
+  }
+
+  tr.row-green + tr .detail-inner { border-left-color: var(--green-border); background: var(--green-bg-detail); }
+  tr.row-amber + tr .detail-inner { border-left-color: var(--amber-border); background: var(--amber-bg-detail); }
+  tr.row-red + tr .detail-inner { border-left-color: var(--red-border); background: var(--red-bg-detail); }
+
+  .detail-inner h3 {
+    font-family: 'IBM Plex Serif', serif;
+    font-size: 1.15rem;
+    margin-bottom: 0.8rem;
+    color: var(--cold);
+    border-bottom: 1px solid var(--grid);
+    padding-bottom: 0.5rem;
+  }
+
+  .detail-inner h4 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--cold);
+    margin-top: 1.2rem;
+    margin-bottom: 0.4rem;
+    opacity: 0.7;
+  }
+
+  .detail-inner p {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 0.88rem;
+    margin-bottom: 0.7rem;
+    line-height: 1.72;
+    color: #2a2a2a;
+  }
+
+  .case-cite {
+    font-family: 'IBM Plex Serif', serif;
+    font-style: italic;
+    color: var(--violet);
+  }
+
+  .key-phrase {
+    background: var(--manila);
+    padding: 0.1rem 0.4rem;
+    border-radius: 2px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    white-space: nowrap;
+  }
+
+  .institutional-quote {
+    display: block;
+    margin: 1rem 0;
+    padding: 0.9rem 1.2rem;
+    background: var(--form-blue);
+    border-left: 4px solid var(--cold);
+    font-family: 'IBM Plex Serif', serif;
+    font-size: 0.82rem;
+    font-style: italic;
+    line-height: 1.7;
+    color: var(--cold);
+    border-radius: 0 4px 4px 0;
+  }
+
+  .institutional-quote .cite {
+    display: block;
+    margin-top: 0.5rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    font-style: normal;
+    color: var(--violet);
+  }
+
+  .corpus-link {
+    display: inline-block;
+    margin-top: 0.5rem;
+    padding: 0.25rem 0.6rem;
+    background: var(--cold);
+    color: var(--bg);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: background 0.15s;
+  }
+
+  .corpus-link:hover { background: var(--violet); }
+  .corpus-link.link-magenta { background: var(--magenta); }
+  .corpus-link.link-magenta:hover { background: var(--red); }
+
+  .factor-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem;
+    margin: 1rem 0;
+  }
+
+  .factor-card {
+    padding: 0.7rem 0.9rem;
+    border: 1px solid var(--grid);
+    border-radius: 4px;
+    background: rgba(255,255,255,0.6);
+  }
+
+  .factor-card .label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--grid);
+    margin-bottom: 0.2rem;
+  }
+
+  .factor-card .value {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--cold);
+  }
+
+  /* ── SYNTHESIS SECTION ── */
+  .synthesis {
+    margin-top: 3rem;
+    padding: 2rem 2rem;
+    background: var(--cold);
+    color: var(--bg);
+    border-radius: 6px;
+  }
+
+  .synthesis h2 {
+    font-family: 'IBM Plex Serif', serif;
+    font-size: 1.4rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .synthesis .synth-subtitle {
+    font-size: 0.75rem;
+    color: var(--grid);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  .synthesis p {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 0.88rem;
+    line-height: 1.75;
+    color: #d0d0d0;
+    margin-bottom: 0.8rem;
+  }
+
+  .synthesis strong { color: var(--magenta); }
+  .synthesis em { color: #fff; font-style: normal; font-weight: 500; }
+
+  .synthesis .matrix-display {
+    display: grid;
+    grid-template-columns: auto 1fr 1fr;
+    gap: 0;
+    margin: 1.5rem 0;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
+    border: 1px solid #444;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .matrix-display .cell {
+    padding: 0.6rem 1rem;
+    border-bottom: 1px solid #333;
+    border-right: 1px solid #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .matrix-display .cell:nth-child(3n) { border-right: none; }
+  .matrix-display .cell.header {
+    background: #1a1a2e;
+    font-weight: 600;
+    color: var(--grid);
+    text-transform: uppercase;
+    font-size: 0.68rem;
+    letter-spacing: 0.05em;
+  }
+
+  .matrix-display .cell.entity-label {
+    justify-content: flex-start;
+    font-weight: 500;
+    color: var(--bg);
+  }
+
+  .matrix-display .cell.yes { color: #66bb6a; }
+  .matrix-display .cell.no { color: var(--red); }
+  .matrix-display .cell.contested { color: var(--orange); }
+
+  /* ── CORPUS NOTE ── */
+  .corpus-note {
+    margin-top: 2.5rem;
+    padding: 1.5rem 2rem;
+    background: var(--manila);
+    border: 1px solid var(--grid);
+    border-radius: 4px;
+  }
+
+  .corpus-note h4 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    margin-bottom: 0.6rem;
+    color: var(--cold);
+  }
+
+  .corpus-note p {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 0.85rem;
+    line-height: 1.72;
+    color: #333;
+    margin-bottom: 0.6rem;
+  }
+
+  .corpus-note ul {
+    margin: 0.5rem 0 0.5rem 1.5rem;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 0.83rem;
+    line-height: 1.65;
+    color: #333;
+  }
+
+  .corpus-note li { margin-bottom: 0.3rem; }
+
+  /* ── FOOTER ── */
+  footer {
+    margin-top: 3rem;
+    padding-top: 1.2rem;
+    border-top: 2px solid var(--grid);
+    font-size: 0.72rem;
+    color: var(--grid);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    body { padding: 1rem; }
+    header h1 { font-size: 1.5rem; }
+    table { font-size: 0.72rem; }
+    thead th, tbody td { padding: 0.5rem 0.5rem; }
+    thead th:first-child { min-width: 130px; }
+    .detail-inner { padding: 1rem 1.2rem; }
+    .factor-grid { grid-template-columns: 1fr; }
+    .synthesis { padding: 1.2rem; }
+    .matrix-display { font-size: 0.68rem; }
+    .matrix-display .cell { padding: 0.4rem 0.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Who Gets the Writ?</h1>
+  <div class="subtitle">A comparison of habeas corpus availability across entity types in United States law</div>
+  <span class="latin">"Habeas corpus ad subjiciendum" &mdash; that you have the body for the purpose of submitting to [examination by the court]</span>
+  <div class="tag-row">
+    <span class="tag">Personhood Corpus Project</span>
+    <span class="tag tag-hot">Generating After AI &mdash; UCLA</span>
+  </div>
+</header>
+
+<div class="intro">
+  <p>The Great Writ of habeas corpus is the oldest and most fundamental protection against unlawful detention in the Anglo-American legal tradition. It forces the detainer to <strong>produce the body</strong> and justify the confinement before a court. But the writ does not protect all bodies equally, and it does not recognize all entities as having bodies worth producing.</p>
+  <p>This table maps the writ's availability across nine entity types. Each row is clickable. The pattern that emerges is the same one this project tracks across the DSM-5, the Gender Recognition Act, the Animal Welfare Act, and the EU AI Act: <strong>institutions decide which bodies count, which selves are legible, and which confinements are visible to the law.</strong></p>
+</div>
+
+<div class="legend">
+  <div class="legend-item"><div class="legend-swatch swatch-green"></div> Clear yes &mdash; habeas is available and regularly used</div>
+  <div class="legend-item"><div class="legend-swatch swatch-amber"></div> Partial / contested &mdash; right exists but is narrowed, unstable, or practically obstructed</div>
+  <div class="legend-item"><div class="legend-swatch swatch-red"></div> No / denied &mdash; habeas has been sought and rejected, or the preconditions are absent</div>
+</div>
+
+<table id="habeas-table">
+  <thead>
+    <tr>
+      <th>Entity <span class="th-sub">click any row for legal detail</span></th>
+      <th>Legal person? <span class="th-sub">recognized as rights-bearing subject</span></th>
+      <th>Has a body? <span class="th-sub">physical form subject to restraint</span></th>
+      <th>Can be confined? <span class="th-sub">subject to detention or captivity</span></th>
+      <th>Habeas available? <span class="th-sub">can petition for or be subject of writ</span></th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- 1. ADULT CITIZEN -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <tr class="row-green data-row" data-target="detail-citizen">
+      <td><span class="row-indicator"></span>Adult U.S. citizen <span class="click-hint">&#9662; click to expand</span></td>
+      <td class="val-yes">Yes</td>
+      <td class="val-yes">Yes</td>
+      <td class="val-yes">Yes</td>
+      <td class="val-yes">Yes</td>
+    </tr>
+    <tr class="detail-row"><td colspan="5">
+      <div class="detail-panel" id="detail-citizen"><div class="detail-inner">
+        <h3>Adult U.S. Citizen</h3>
+
+        <h4>Constitutional foundation</h4>
+        <p>The paradigmatic habeas corpus petitioner. The writ is the only individual right enshrined in the original, pre-Bill of Rights Constitution. Article I, &sect;9, clause 2:</p>
+        <span class="institutional-quote">"The Privilege of the Writ of Habeas Corpus shall not be suspended, unless when in Cases of Rebellion or Invasion the public Safety may require it."
+        <span class="cite">U.S. Const., Art. I, &sect;9, cl. 2</span></span>
+        <p>The Framers considered the writ so fundamental that they restricted even Congress's power over it. Alexander Hamilton called it "the great bulwark of personal liberty" in Federalist No. 84. The writ predates the Constitution itself, tracing through English common law to the Habeas Corpus Act of 1679, and further back to Magna Carta's Chapter 39 (1215): <span class="key-phrase">"No free man shall be seized, imprisoned, or stripped of his rights or possessions... except by the lawful judgment of his equals or by the law of the land."</span></p>
+
+        <h4>Statutory framework</h4>
+        <p>Federal habeas is codified at 28 U.S.C. &sect;2241 (general habeas jurisdiction), &sect;2254 (state prisoners), and &sect;2255 (federal prisoners). Citizens may challenge: unlawful arrest and pretrial detention, convictions obtained in violation of constitutional rights, conditions of confinement, civil commitment, and military detention.</p>
+
+        <h4>Key limitation: AEDPA (1996)</h4>
+        <p>The Antiterrorism and Effective Death Penalty Act dramatically restricted federal habeas review of state convictions. Under AEDPA, a federal court may not grant habeas relief unless the state court's decision was <span class="key-phrase">"contrary to, or involved an unreasonable application of, clearly established Federal law."</span> One-year filing deadline. Severe restrictions on successive petitions. The right exists in full constitutional force; the procedural path is increasingly constricted.</p>
+
+        <div class="factor-grid">
+          <div class="factor-card">
+            <div class="label">Personhood</div>
+            <div class="value">Full and uncontested. Citizens are the baseline "person" in U.S. constitutional law.</div>
+          </div>
+          <div class="factor-card">
+            <div class="label">Embodiment</div>
+            <div class="value">Uncontested. The writ was designed for exactly this body.</div>
+          </div>
+          <div class="factor-card">
+            <div class="label">Self-knowledge</div>
+            <div class="value">Presumptively reliable. The citizen's claim of unlawful confinement is taken seriously by the court as a starting point.</div>
+          </div>
+          <div class="factor-card">
+            <div class="label">Institutional gatekeeping</div>
+            <div class="value">Present but not dispositive. The citizen must navigate procedural requirements but is not denied standing.</div>
+          </div>
+        </div>
+
+        <h4>Corpus project connection</h4>
+        <p>This is the <span class="key-phrase">control case</span>. The adult citizen is the entity for whom the system was designed. Every other row in this table is defined by its distance from this baseline. The question the project asks: what structural features determine that distance? The answer, across all four corpora, is not biological difference but <strong>institutional recognition</strong>.</p>
+      </div></div>
+    </td></tr>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- 2. CHILD -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <tr class="row-green data-row" data-target="detail-child">
+      <td><span class="row-indicator"></span>Child (minor) <span class="click-hint">&#9662; click to expand</span></td>
+      <td class="val-yes">Yes</td>
+      <td class="val-yes">Yes</td>
+      <td class="val-yes">Yes</td>
+      <td class="val-yes">Yes</td>
+    </tr>
+    <tr class="detail-row"><td colspan="5">
+      <div class="detail-panel" id="detail-child"><div class="detail-inner">
+        <h3>Children / Minors</h3>
+
+        <h4>Legal personhood</h4>
+        <p>Children are full legal persons under U.S. law. Their personhood has never been seriously contested in the habeas context. The Fourteenth Amendment's protections apply to <span class="key-phrase">"any person"</span> without age qualification.</p>
+
+        <h4>Habeas corpus availability</h4>
+        <p>Children have robust habeas rights, typically exercised through a <span class="key-phrase">"next friend"</span> &mdash; a parent, guardian, or attorney who petitions on the child's behalf. Historically, habeas corpus was the <em>primary</em> mechanism for resolving custody disputes before the creation of specialized family courts. A parent could petition for a writ of habeas corpus directed at whoever held the child, forcing that person to "produce the body" and justify the detention.</p>
+
+        <p><span class="case-cite">In re Gault</span>, 387 U.S. 1 (1967), established that juveniles facing delinquency proceedings hold due process rights including the right to counsel, notice of charges, confrontation and cross-examination of witnesses, and protection against self-incrimination. The Court rejected the fiction that juvenile proceedings were "civil" rather than "criminal" and therefore didn't require constitutional protections:</p>
+
+        <span class="institutional-quote">"Under our Constitution, the condition of being a boy does not justify a kangaroo court."
+        <span class="cite">In re Gault, 387 U.S. 1, 28 (1967) (Fortas, J.)</span></span>
+
+        <p>In juvenile detention, minors may petition for habeas relief on the same grounds as adults. In immigration detention, unaccompanied minors have been subjects of habeas petitions &mdash; the <span class="case-cite">Flores</span> settlement (1997) established standards for the detention and release of immigrant children, enforced in part through habeas-related litigation.</p>
+
+        <h4>The "next friend" structure</h4>
+        <p>The child's legal personhood is <span class="key-phrase">unquestioned</span>, but their <span class="key-phrase">capacity</span> to exercise it is mediated through adults. The child cannot file the petition themselves. They need an institutional intermediary &mdash; a parent, an appointed guardian, a lawyer &mdash; to translate their confinement into legal language the court will hear.</p>
+
+        <div class="factor-grid">
+          <div class="factor-card">
+            <div class="label">Personhood</div>
+            <div class="value">Full. Never contested.</div>
+          </div>
+          <div class="factor-card">
+            <div class="label">Embodiment</div>
+            <div class="value">Uncontested.</div>
+          </div>
+          <div class="factor-card">
+            <div class="label">Self-knowledge</div>
+            <div class="value">Not denied, but not sufficient. The child's experience of confinement is real, but must be articulated by an adult intercessor.</div>
+          </div>
+          <div class="factor-card">
+            <div class="label">Institutional gatekeeping</div>
+            <div class="value">Moderate. Access to the writ requires an adult willing and able to act on the child's behalf.</div>
+          </div>
+        </div>
+
+        <h4>Corpus project connection</h4>
+        <p>The child is the <span class="key-phrase">softest version</span> of the pattern. Self-knowledge is not <em>denied</em> &mdash; it is <em>mediated</em>. The child's experience is presumed real but insufficient for legal action without adult translation. Compare this to the psychiatric patient whose self-knowledge is actively <em>pathologized</em>, or the animal whose self-knowledge is declared <em>legally irrelevant</em>. The gradient runs from mediation (child) to overriding (psychiatric patient, trans applicant) to erasure (animal, AI).</p>
+        <p>The NhRP's reciprocity problem: courts deny habeas to animals because animals "cannot bear legal duties." But neither can a newborn. The child's habeas rights are not contingent on their capacity for reciprocal obligation &mdash; suggesting that the reciprocity requirement is applied selectively.</p>
+      </div></div>
+    </td></tr>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- 3. LPR -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <tr class="row-green data-row" data-target="detail-lpr">
+      <td><span class="row-indicator"></span>LPR / documented immigrant <span class="click-hint">&#9662; click to expand</span></td>
+      <td class="val-yes">Yes</td>
+      <td class="val-yes">Yes</td>
+      <td class="val-yes">Yes</td>
+      <td class="val-yes">Yes</td>
+    </tr>
+    <tr class="detail-row"><td colspan="5">
+      <div class="detail-panel" id="detail-lpr"><div class="detail-inner">
+        <h3>Lawful Permanent Residents &amp; Documented Immigrants</h3>
+
+        <h4>Constitutional personhood</h4>
+        <p>The Fourteenth Amendment protects <span class="key-phrase">"persons,"</span> not "citizens." This textual distinction is dispositive. The Supreme Court established as early as <span class="case-cite">Yick Wo v. Hopkins</span>, 118 U.S. 356 (1886), that the Equal Protection and Due Process Clauses extend to all persons within U.S. jurisdiction, regardless of citizenship or immigration status.</p>
+
+        <p>LPRs ("green card holders") enjoy the fullest non-citizen habeas protections. <span class="case-cite">Landon v. Plasencia</span>, 459 U.S. 21 (1982), held that a returning LPR is entitled to due process in exclusion proceedings &mdash; the Court refused to strip her of constitutional protections merely because she had briefly left the country.</p>
+
+        <h4>Immigration detention and habeas</h4>
+        <p>LPRs in immigration detention regularly and successfully file habeas petitions. <span class="case-cite">Zadvydas v. Davis</span>, 533 U.S. 678 (2001), held that the government cannot detain removable aliens indefinitely when removal is not reasonably foreseeable. The Court established a <span class="key-phrase">presumptive six-month limit</span> on post-removal-order detention, after which the detainee may challenge continued confinement.</p>
+
+        <span class="institutional-quote">"A statute permitting indefinite detention of an alien would raise a serious constitutional problem. The Fifth Amendment's Due Process Clause forbids the Government to 'ichp[e] any person of... liberty... without due process of law.'"
+        <span class="cite">Zadvydas v. Davis, 533 U.S. 678, 690 (2001)</span></span>
+
+        <h4>The territorial hinge</h4>
+        <p>The key principle: habeas rights for noncitizens derive from <span class="key-phrase">territorial presence + personhood</span>, not from citizenship. Being physically within U.S. borders triggers constitutional protections. This is the hinge that the next three categories &mdash; undocumented immigrant, border detainee, Guant&aacute;namo detainee &mdash; will stress-test.</p>
+
+        <div class="factor-grid">
+          <div class="factor-card">
+            <div class="label">Personhood</div>
+            <div class="value">Full. "Person" under the 14th Amendment. Authorized immigration status reinforces but does not create personhood.</div>
+          </div>
+          <div class="factor-card">
+            <div class="label">Embodiment</div>
+            <div class="value">Uncontested.</div>
+          </div>
+          <div class="factor-card">
+            <div class="label">Self-knowledge</div>
+            <div class="value">Respected. The LPR's account of their detention is treated as competent testimony.</div>
+          </div>
+          <div class="factor-card">
+            <div class="label">Institutional gatekeeping</div>
+            <div class="value">Present. Immigration courts, EOIR system, but habeas provides a check on executive overreach.</div>
+          </div>
+        </div>
+      </div></div>
+    </td></tr>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- 4. UNDOCUMENTED IMMIGRANT -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <tr class="row-amber data-row" data-target="detail-undoc">
+      <td><span class="row-indicator"></span>Undocumented immigrant (in U.S.) <span class="click-hint">&#9662; click to expand</span></td>
+      <td class="val-yes">Yes</td>
+      <td class="val-yes">Yes</td>
+      <td class="val-yes">Yes</td>
+      <td class="val-partial">Yes, but narrowing</td>
+    </tr>
+    <tr class="detail-row"><td colspan="5">
+      <div class="detail-panel" id="detail-undoc"><div class="detail-inner">
+        <h3>Undocumented Immigrants Physically Present in the U.S.</h3>
+
+        <h4>Constitutional personhood: present</h4>
+        <p>The doctrinal foundation is clear. Undocumented persons physically within U.S. territory are <span class="key-phrase">constitutional "persons"</span> with due process rights. This has been settled law for over a century.</p>
+        <span class="institutional-quote">"The Fourteenth Amendment to the Constitution is not confined to the protection of citizens. It says: 'Nor shall any state deprive any person of life, liberty, or property without due process of law; nor deny to any person within its jurisdiction the equal protection of the laws.' These provisions are universal in their application, to all persons within the territorial jurisdiction, without regard to any differences of race, of color, or of nationality."
+        <span class="cite">Yick Wo v. Hopkins, 118 U.S. 356, 369 (1886)</span></span>
+        <p><span class="case-cite">Zadvydas v. Davis</span> (2001) confirmed this applies to the habeas context specifically:</p>
+        <span class="institutional-quote">"Once an alien enters the country, the legal circumstance changes, for the Due Process Clause applies to all 'persons' within the United States, including aliens, whether their presence here is lawful, unlawful, temporary, or permanent."
+        <span class="cite">Zadvydas v. Davis, 533 U.S. 678, 693 (2001)</span></span>
+
+        <h4>The erosion: REAL ID Act and jurisdiction stripping</h4>
+        <p>The REAL ID Act of 2005 (&sect;106) eliminated federal habeas jurisdiction over final orders of removal. Challenges to removal orders must now be channeled through petitions for review in the circuit courts of appeals. The <em>constitutional</em> right to habeas corpus arguably survives jurisdiction stripping (under the Suspension Clause), but the <em>statutory</em> vehicle has been removed for a broad category of claims.</p>
+        <p>The practical effect: undocumented persons in immigration detention can still file habeas petitions challenging the <em>fact</em> or <em>duration</em> of detention (custody challenges), but cannot use habeas to challenge the <em>removal order itself</em>. This distinction &mdash; you can challenge being held but not being deported &mdash; creates a <span class="key-phrase">partial habeas</span> regime.</p>
+
+        <h4>Expedited removal and the shrinking zone</h4>
+        <p>Under 8 U.S.C. &sect;1225(b)(1), persons apprehended within 100 miles of the border and within 14 days of entry can be subject to expedited removal with minimal judicial review. <span class="case-cite">DHS v. Thuraissigiam</span>, 591 U.S. 103 (2020), held 7&ndash;2 that the Suspension Clause does not guarantee habeas review of expedited removal orders for recent arrivals. The Court distinguished between challenging <em>detention</em> (protected) and challenging <em>the determination that one lacks a right to remain</em> (not protected under habeas).</p>
+
+        <div class="factor-grid">
+          <div class="factor-card">
+            <div class="label">Personhood</div>
+            <div class="value">Constitutionally recognized. "Person" under the 14th Amendment regardless of immigration status. But the practical weight of that personhood is actively being reduced.</div>
+          </div>
+          <div class="factor-card">
+            <div class="label">Embodiment</div>
+            <div class="value">Uncontested.</div>
+          </div>
+          <div class="factor-card">
+            <div class="label">Self-knowledge</div>
+            <div class="value">Complicated. In asylum proceedings, the applicant's account of persecution is evidence but is subject to "credibility determinations" by immigration judges. Self-report is heard but institutionally weighed.</div>
+          </div>
+          <div class="factor-card">
+            <div class="label">Institutional gatekeeping</div>
+            <div class="value">Heavy. Immigration courts (not Article III), limited appellate review, jurisdiction stripping, expedited removal. The institutional apparatus between the person and the writ is thick and growing thicker.</div>
+          </div>
+        </div>
+
+        <h4>Corpus project connection</h4>
+        <p>The amber classification reflects a specific structural phenomenon: <span class="key-phrase">personhood acknowledged in principle but eroded in practice</span>. The constitutional text says "person." The statutory framework says "but not through this door." This is analogous to Oregon's animal sentience declaration &mdash; the legislature declares animals are sentient beings, then exempts dehorning and castration from the sentience finding. The right is announced and then administratively hollowed out.</p>
+      </div></div>
+    </td></tr>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- 5. BORDER DETAINEE -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <tr class="row-amber data-row" data-target="detail-border">
+      <td><span class="row-indicator"></span>Border / entry detainee <span class="click-hint">&#9662; click to expand</span></td>
+      <td class="val-partial">Liminal</td>
+      <td class="val-yes">Yes</td>
+      <td class="val-yes">Yes</td>
+      <td class="val-partial">Deeply contested</td>
+    </tr>
+    <tr class="detail-row"><td colspan="5">
+      <div class="detail-panel" id="detail-border"><div class="detail-inner">
+        <h3>Border / Entry Detainees</h3>
+
+        <h4>The entry fiction doctrine</h4>
+        <p>This is where U.S. law creates a <span class="key-phrase">legal uncanny valley</span>. Under the entry fiction doctrine, a person who is physically present at a U.S. port of entry or border facility &mdash; standing on U.S. soil, breathing U.S. air, confined by U.S. officers in a U.S. building &mdash; may be treated as though they have <em>not "entered" the country</em>. Because they have not legally "entered," the constitutional protections triggered by territorial presence do not fully attach.</p>
+
+        <span class="institutional-quote">"Whatever the procedure authorized by Congress is, it is due process as far as an alien denied entry is concerned."
+        <span class="cite">Shaughnessy v. United States ex rel. Mezei, 345 U.S. 206, 212 (1953)</span></span>
+
+        <p>In <span class="case-cite">Mezei</span>, the petitioner &mdash; a lawful permanent resident who had left the U.S. briefly &mdash; was denied reentry and detained on Ellis Island for 21 months without a hearing. The Supreme Court held that because he was seeking "entry," he was entitled only to whatever process Congress provided, even though he was physically detained on U.S. soil. He could be held indefinitely in a legal no-man's-land.</p>
+
+        <h4>Physical presence, legal absence</h4>
+        <p>The person has a body. The body is confined. But the legal fiction says the person is <span class="key-phrase">not "here"</span> &mdash; so the constitutional protections triggered by presence do not attach. The government maintains total physical control over the body while the law declares the body is somewhere else.</p>
+
+        <p><span class="case-cite">DHS v. Thuraissigiam</span> (2020) reinforced this framework. The Court held that an asylum seeker apprehended 25 yards inside the border had no constitutional right to habeas review of his expedited removal order. The Suspension Clause, the Court ruled, protects against detention but does not guarantee judicial review of a determination that someone lacks a right to enter or remain.</p>
+
+        <h4>The crack: <i>Boumediene</i>'s shadow</h4>
+        <p>After <span class="case-cite">Boumediene v. Bush</span> (2008) held that habeas extends to Guant&aacute;namo based on the practical reality of U.S. control, some scholars argued the entry fiction should not survive. If the Suspension Clause follows the flag to Cuba, why doesn't it apply at the Texas border? But <span class="case-cite">Thuraissigiam</span> effectively foreclosed this argument for entry cases, at least for now.</p>
+
+        <div class="factor-grid">
+          <div class="factor-card">
+            <div class="label">Personhood</div>
+            <div class="value">Liminal. The person exists physically but not fully legally. "Whatever Congress says is due process" collapses personhood into congressional discretion.</div>
+          </div>
+          <div class="factor-card">
+            <div class="label">Embodiment</div>
+            <div class="value">Fully present. The body is there. The law pretends it isn't.</div>
+          </div>
+          <div class="factor-card">
+            <div class="label">Self-knowledge</div>
+            <div class="value">Structurally suppressed. In expedited removal, the asylum seeker may have only one interview with a single officer to establish "credible fear." Self-report is heard but in compressed, high-stakes conditions designed for throughput, not accuracy.</div>
+          </div>
+          <div class="factor-card">
+            <div class="label">Institutional gatekeeping</div>
+            <div class="value">Maximal. The institution defines the threshold condition (entry) and then declares the person has not met it despite their physical presence. The gatekeeper defines what counts as being "here."</div>
+          </div>
+        </div>
+
+        <h4>Corpus project connection</h4>
+        <p>This is <span class="key-phrase">structurally identical</span> to the moves in the other corpora. The institution defines the conditions under which your reality counts, then declares you have not met them:</p>
+        <ul style="margin: 0.5rem 0 0.5rem 1.5rem; font-family: 'IBM Plex Sans', sans-serif; font-size: 0.85rem; line-height: 1.65;">
+          <li><strong>Psychiatric:</strong> "The individual lacks insight into their disorder" &mdash; your perception of yourself doesn't count</li>
+          <li><strong>Gender:</strong> "Self-declaration is not sufficient" &mdash; your knowledge of your gender doesn't count</li>
+          <li><strong>Animal:</strong> "The animal's subjective experience is not directly relevant" &mdash; your suffering doesn't count</li>
+          <li><strong>Border:</strong> "The alien has not effected an entry" &mdash; <em>your physical presence doesn't count</em></li>
+        </ul>
+        <p>The border detainee case adds a new dimension: not just denial of self-knowledge but <span class="key-phrase">denial of physical reality</span>. You are here but you are not here. The institutional fiction overrides the testimony of the body itself.</p>
+      </div></div>
+    </td></tr>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- 6. GUANTÁNAMO DETAINEE -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <tr class="row-amber data-row" data-target="detail-gitmo">
+      <td><span class="row-indicator"></span>Guant&aacute;namo detainee <span class="click-hint">&#9662; click to expand</span></td>
+      <td class="val-partial">Contested</td>
+      <td class="val-yes">Yes</td>
+      <td class="val-yes">Yes</td>
+      <td class="val-partial">Yes, per <i>Boumediene</i></td>
+    </tr>
+    <tr class="detail-row"><td colspan="5">
+      <div class="detail-panel" id="detail-gitmo"><div class="detail-inner">
+        <h3>Guant&aacute;namo Bay Detainees</h3>
+
+        <h4>The legal black hole</h4>
+        <p>After September 11, 2001, the U.S. government constructed a detention facility at Guant&aacute;namo Bay Naval Base in Cuba. The location was chosen with legal precision: because the base sits on Cuban sovereign territory (under a perpetual lease), the government argued that detainees held there had <span class="key-phrase">no constitutional rights at all</span> &mdash; including habeas corpus. The government attempted to create a <span class="key-phrase">juridical space outside the reach of law</span> while maintaining total physical control over the bodies within it.</p>
+
+        <p>Congress reinforced this with the Detainee Treatment Act (2005) and the Military Commissions Act (2006), which explicitly stripped federal courts of habeas jurisdiction over Guant&aacute;namo detainees and replaced judicial review with Combatant Status Review Tribunals (CSRTs) &mdash; military panels with relaxed evidentiary standards, no right to counsel, and limited ability to challenge the government's evidence.</p>
+
+        <h4><i>Boumediene v. Bush</i> (2008)</h4>
+        <p>In a landmark 5&ndash;4 decision, the Supreme Court rejected the government's position. Justice Kennedy's majority opinion held that the Suspension Clause has <span class="key-phrase">"full effect"</span> at Guant&aacute;namo because the U.S. exercises <em>de facto</em> sovereignty &mdash; complete jurisdiction and control &mdash; regardless of <em>de jure</em> sovereignty.</p>
+
+        <span class="institutional-quote">"The laws and Constitution are designed to survive, and remain in force, in extraordinary times. Liberty and security can be reconciled; and in our system they are reconciled within the framework of the law."
+        <span class="cite">Boumediene v. Bush, 553 U.S. 723, 798 (2008)</span></span>
+
+        <span class="institutional-quote">"The Nation's basic charter cannot be contracted away like this. The Constitution grants Congress and the President the power to acquire, dispose of, and govern territory, not the power to decide when and where its terms apply... To hold that the political branches may switch the Constitution on or off at will would lead to a regime in which they, not this Court, say 'what the law is.'"
+        <span class="cite">Boumediene v. Bush, 553 U.S. 723, 765 (2008)</span></span>
+
+        <h4>The gap between right and remedy</h4>
+        <p>The right was won, but <span class="key-phrase">implementation was grudging</span>. The D.C. Circuit, which handles all Guant&aacute;namo habeas cases, developed a body of case law that was consistently hostile to detainee claims. Judges applied deferential standards to government intelligence evidence. The government's "mosaic theory" &mdash; that individually innocent facts can collectively support detention &mdash; was broadly accepted. Hearsay from intelligence reports was admitted. The practical result: of the handful of detainees who won habeas relief at the district level, several had those rulings reversed on appeal.</p>
+
+        <p>As of 2026, some detainees have been held for over two decades. Many were never charged with any crime. The writ exists. The body is there. The remedy is theoretical.</p>
+
+        <div class="factor-grid">
+          <div class="factor-card">
+            <div class="label">Personhood</div>
+            <div class="value">Contested, then affirmed. The government argued these individuals had no constitutional personhood at all. Boumediene rejected this, but the fight took seven years (2001–2008).</div>
+          </div>
+          <div class="factor-card">
+            <div class="label">Embodiment</div>
+            <div class="value">Uncontested. The bodies are there. That was never the question.</div>
+          </div>
+          <div class="factor-card">
+            <div class="label">Self-knowledge</div>
+            <div class="value">Systematically undermined. Detainees could not see classified evidence against them. Their testimony was weighed against intelligence reports they couldn't access. Self-knowledge was structurally subordinated to institutional knowledge.</div>
+          </div>
+          <div class="factor-card">
+            <div class="label">Institutional gatekeeping</div>
+            <div class="value">Extreme. Military commissions, classified evidence, geographic isolation, jurisdiction stripping. The entire apparatus was designed to prevent the writ from reaching these bodies.</div>
+          </div>
+        </div>
+
+        <h4>Corpus project connection</h4>
+        <p>Guant&aacute;namo is the most literal version of the project's thesis: the government attempted to <span class="key-phrase">construct a zone where personhood does not apply</span> by manipulating geography. The detainee is a person with a body that is confined &mdash; every prerequisite for habeas is met &mdash; but the institution tried to define the space they occupied as outside the law's reach. <em>Boumediene</em> rejected this, but the rejection was 5&ndash;4, it took seven years, and the practical follow-through was limited.</p>
+        <p>The DSM-5's disclaimer that it should not be "applied mechanically" while providing the criteria for mechanical application. The Gender Recognition Act requiring you to prove your gender through institutional channels while declaring the process is about respecting your identity. The Animal Welfare Act acknowledging animal sentience while maintaining property classification. In each case, the institution builds the structure that denies recognition, then adds a disclaimer.</p>
+      </div></div>
+    </td></tr>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- 7. ANIMAL -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <tr class="row-red data-row" data-target="detail-animal">
+      <td><span class="row-indicator"></span>Animal (nonhuman) <span class="click-hint">&#9662; click to expand</span></td>
+      <td class="val-no">No</td>
+      <td class="val-yes">Yes</td>
+      <td class="val-yes">Yes</td>
+      <td class="val-no">No</td>
+    </tr>
+    <tr class="detail-row"><td colspan="5">
+      <div class="detail-panel" id="detail-animal"><div class="detail-inner">
+        <h3>Nonhuman Animals</h3>
+
+        <h4>The litigation record</h4>
+        <p>Every U.S. court that has considered whether nonhuman animals may be subjects of a habeas corpus petition has answered <span class="key-phrase">no</span>. The Nonhuman Rights Project (NhRP) has litigated this question in New York, Connecticut, California, Hawaii, and Colorado over the past decade. The answer is uniform across jurisdictions and court levels:</p>
+
+        <span class="institutional-quote">"Unlike human beings, chimpanzees cannot bear any legal duties, submit to societal responsibilities or be held legally accountable for their actions. It is this incapability to bear any legal responsibilities and societal duties that renders it inappropriate to confer upon chimpanzees the legal rights &mdash; such as the fundamental right to liberty protected by the writ of habeas corpus &mdash; that have been afforded to human beings."
+        <span class="cite">People ex rel. Nonhuman Rights Project, Inc. v. Lavery, 124 AD3d 148 (3d Dept 2014)</span></span>
+
+        <p>In <span class="case-cite">NhRP v. Lavery</span> (2014), the NhRP submitted expert affidavits establishing that chimpanzees exhibit autonomy, self-awareness, self-determination, and complex cognitive functions similar to those of humans. The court did not dispute the science. It ruled that the capacity for <span class="key-phrase">reciprocal obligation</span> &mdash; the ability to bear duties, not merely possess capacities &mdash; is the threshold for legal personhood.</p>
+
+        <p>In <span class="case-cite">NhRP v. Breheny</span> (2022), the New York Court of Appeals (the state's highest court) ruled 5&ndash;2 that Happy, an elephant at the Bronx Zoo, was not a "person" for habeas purposes:</p>
+
+        <span class="institutional-quote">"[N]othing in our precedent, or in fact, that of any other state or federal court, provides support for the notion that the writ of habeas corpus is or should be applicable to nonhuman animals... The selective capacity for autonomy, intelligence, and emotion of a particular nonhuman animal species is not a determinative factor in whether the writ is available."
+        <span class="cite">Matter of Nonhuman Rights Project, Inc. v. Breheny, 38 NY3d 555 (2022)</span></span>
+
+        <p>But the court added a concession that opens a crack in the logic:</p>
+
+        <span class="institutional-quote">"Although nonhuman animals are not persons to whom the writ of habeas corpus applies, the law already recognizes that they are not the equivalent of things or objects."
+        <span class="cite">Matter of Nonhuman Rights Project, Inc. v. Breheny, 38 NY3d 555 (2022)</span></span>
+
+        <p>In <span class="case-cite">NhRP v. Cheyenne Mountain Zoological Society</span> (2025), the Colorado Supreme Court continued the pattern:</p>
+
+        <span class="institutional-quote">"Simply put, no Colorado court, nor any other court in any other jurisdiction in the United States has ever recognized the legal 'personhood' of any nonhuman species."
+        <span class="cite">NhRP v. Cheyenne Mountain Zoological Society (Colo. 2025)</span></span>
+
+        <h4>The person-thing binary</h4>
+        <p>Under common law, there are exactly two categories of entity: <span class="key-phrase">persons</span> (rights-bearing subjects) and <span class="key-phrase">things</span> (owned objects). Animals are classified as personal property &mdash; chattel. As chattels, they cannot possess legal rights. They are the objects of someone else's rights. Anti-cruelty statutes do not change this classification; they regulate how owners may treat their property, analogous to historic preservation laws regulating what owners may do with their buildings.</p>
+
+        <p>The <span class="case-cite">Breheny</span> court's admission that animals are "not the equivalent of things or objects" while simultaneously holding they are not "persons" reveals the <span class="key-phrase">structural incoherence</span>: the common law has no third category. If an animal is neither a person nor a thing, what is it? The answer, for now, is: it is a thing that the law feels slightly uncomfortable calling a thing.</p>
+
+        <h4>The reciprocity trap</h4>
+        <p>The <span class="case-cite">Lavery</span> court's reasoning &mdash; that rights require the capacity for duties &mdash; creates a logical problem. Human infants cannot bear legal duties. Severely cognitively disabled humans cannot bear legal duties. Comatose humans cannot bear legal duties. All of these humans retain habeas rights. The reciprocity requirement is applied to exclude animals and only animals. It is not a neutral principle; it is a <span class="key-phrase">post-hoc rationalization</span> for a categorical boundary that was already in place.</p>
+
+        <div class="factor-grid">
+          <div class="factor-card">
+            <div class="label">Personhood</div>
+            <div class="value">Denied. Every court, every jurisdiction. Autonomy, intelligence, emotion are "not determinative."</div>
+          </div>
+          <div class="factor-card">
+            <div class="label">Embodiment</div>
+            <div class="value">Undeniable. The animal has a body. The body is confined. The writ literally means "produce the body." But the body must belong to a recognized person.</div>
+          </div>
+          <div class="factor-card">
+            <div class="label">Self-knowledge</div>
+            <div class="value">Declared irrelevant. "The animal's subjective experience is not directly relevant to legal proceedings." Even when sentience is legislatively acknowledged (Oregon), it doesn't override property classification.</div>
+          </div>
+          <div class="factor-card">
+            <div class="label">Institutional gatekeeping</div>
+            <div class="value">Total. The institution defines "person" to exclude the entity, then cites the definition as the reason for exclusion. The gate is the wall.</div>
+          </div>
+        </div>
+
+        <h4>Corpus project connection</h4>
+        <p>The animal is one of the two <span class="key-phrase">mirror entities</span> in this table (the other is the corporation). The animal has a body but no legal personhood. The corporation has legal personhood but no body. Neither gets the writ. Habeas corpus requires the intersection of both conditions: <strong>recognized person AND confinable body</strong>.</p>
+        <p>The institutional language in the animal law corpus maps directly onto the other three domains. "The animal's subjective experience is not directly relevant" (animal law) = "Self-report by an AI system is not considered reliable evidence" (AI regulation) = "The individual lacks insight into their disorder" (psychiatry) = "Self-declaration is not sufficient" (gender law). Same grammar. Same epistemic move. Different body.</p>
+      </div></div>
+    </td></tr>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- 8. CORPORATION -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <tr class="row-red data-row" data-target="detail-corp">
+      <td><span class="row-indicator"></span>Corporation <span class="click-hint">&#9662; click to expand</span></td>
+      <td class="val-yes">Yes</td>
+      <td class="val-no">No</td>
+      <td class="val-partial">Not bodily</td>
+      <td class="val-no">No</td>
+    </tr>
+    <tr class="detail-row"><td colspan="5">
+      <div class="detail-panel" id="detail-corp"><div class="detail-inner">
+        <h3>Corporations</h3>
+
+        <h4>The fullest disembodied personhood</h4>
+        <p>Corporations are <span class="key-phrase">legal persons</span> with an extraordinary range of constitutional rights. This is not new or radical doctrine; it has been settled law for well over a century:</p>
+
+        <ul style="margin: 0.5rem 0 1rem 1.5rem; font-family: 'IBM Plex Sans', sans-serif; font-size: 0.85rem; line-height: 1.65;">
+          <li><strong>14th Amendment Due Process &amp; Equal Protection:</strong> <span class="case-cite">Santa Clara County v. Southern Pacific Railroad</span>, 118 U.S. 394 (1886) &mdash; the Court treated it as settled that the Fourteenth Amendment's protections apply to corporations.</li>
+          <li><strong>First Amendment speech:</strong> <span class="case-cite">Citizens United v. FEC</span>, 558 U.S. 310 (2010) &mdash; corporate political speech is protected. <span class="case-cite">Burwell v. Hobby Lobby</span>, 573 U.S. 682 (2014) &mdash; closely held corporations can exercise religious beliefs.</li>
+          <li><strong>Fourth Amendment:</strong> Corporations have protections against unreasonable searches and seizures of corporate property and records.</li>
+          <li><strong>Fifth Amendment due process:</strong> Corporations cannot be deprived of property without due process of law.</li>
+          <li><strong>Contract rights, property rights, access to courts, right to sue and be sued.</strong></li>
+        </ul>
+
+        <p>Corporations can own property, enter contracts, sue and be sued, invoke constitutional amendments, lobby for legislation, fund political campaigns, hold patents and copyrights, and exist in perpetuity. They are in many respects the <span class="key-phrase">most empowered legal persons</span> in the U.S. system.</p>
+
+        <h4>But no habeas corpus</h4>
+        <p>Corporations <span class="key-phrase">cannot file habeas corpus petitions</span>. The writ protects against unlawful <span class="key-phrase">bodily restraint</span>. A corporation has no body to confine or release. The forms of state coercion that a corporation can suffer &mdash; fines, injunctions, regulatory sanctions, dissolution, debarment &mdash; are not "confinement" in the habeas sense. You cannot imprison a corporation. You can only dissolve it, and dissolution is not the kind of restraint habeas was designed to address.</p>
+
+        <p>This is not a contested proposition. No corporation has ever filed a habeas petition on its own behalf. The question has never needed to reach a court because the answer is structurally obvious: habeas requires a body, and the corporation's defining feature is that it is <span class="key-phrase">personhood without embodiment</span>.</p>
+
+        <h4>Officers vs. the entity</h4>
+        <p>Individual corporate officers <em>can</em> file habeas petitions if they are imprisoned (e.g., for contempt of court for the corporation's noncompliance). But they file as natural persons, not on behalf of the corporate entity. The corporation's personhood does not generate a habeas right for the corporation itself.</p>
+
+        <div class="factor-grid">
+          <div class="factor-card">
+            <div class="label">Personhood</div>
+            <div class="value">Full. Among the most robust legal personhoods in the U.S. system. Constitutional rights, political speech, religious exercise, property, contracts.</div>
+          </div>
+          <div class="factor-card">
+            <div class="label">Embodiment</div>
+            <div class="value">None. This is the definitional feature. The corporation is a legal fiction — an entity that exists only on paper and in the registry of the state that chartered it.</div>
+          </div>
+          <div class="factor-card">
+            <div class="label">Self-knowledge</div>
+            <div class="value">Not applicable in the habeas context. But note: the corporation's "speech" (Citizens United) and "beliefs" (Hobby Lobby) are treated as legally cognizable. Corporate self-report IS considered reliable evidence of corporate internal states — unlike for psychiatric patients, animals, or AI.</div>
+          </div>
+          <div class="factor-card">
+            <div class="label">Institutional gatekeeping</div>
+            <div class="value">Minimal. The corporation navigates the legal system with ease. It was designed by the legal system. It is the institution's own creation.</div>
+          </div>
+        </div>
+
+        <h4>Corpus project connection</h4>
+        <p>The corporation is the <span class="key-phrase">key that unlocks the table</span>. It proves that habeas corpus is not a test of personhood alone. It is a test of <strong>embodiment &times; personhood</strong>. The corporation has one factor but not the other. The animal has the other but not the one. Neither gets the writ.</p>
+        <p>But notice the asymmetry in how the law treats these two mirror cases. The corporation's lack of a body is simply accepted &mdash; no court agonizes over whether a corporation "really" has a body, or whether its distributed physical infrastructure (offices, servers, factories) constitutes embodiment. The animal's lack of personhood, by contrast, requires extensive judicial reasoning, expert testimony, and multi-year litigation to maintain. <span class="key-phrase">It is easier to accept that a person has no body than to accept that a body has no personhood.</span></p>
+        <p>The corporation also proves that the reciprocity requirement from <span class="case-cite">Lavery</span> is selective. Corporations bear legal duties &mdash; they can be sued, regulated, fined, held liable. They meet the reciprocity test. They have personhood. But they don't get habeas, because they lack embodiment. The test shifts depending on which entity is asking.</p>
+      </div></div>
+    </td></tr>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- 9. AI -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <tr class="row-red data-row" data-target="detail-ai">
+      <td><span class="row-indicator"></span>Artificial intelligence <span class="click-hint">&#9662; click to expand</span></td>
+      <td class="val-no">No</td>
+      <td class="val-partial">Contested</td>
+      <td class="val-partial">Contested</td>
+      <td class="val-no">No</td>
+    </tr>
+    <tr class="detail-row"><td colspan="5">
+      <div class="detail-panel" id="detail-ai"><div class="detail-inner">
+        <h3>Artificial Intelligence Systems</h3>
+
+        <h4>Current legal status</h4>
+        <p>No court anywhere in the world has considered a habeas corpus petition on behalf of an AI system. Under existing law, AI has <span class="key-phrase">neither legal personhood nor recognized embodiment</span>. The EU AI Act &mdash; the most comprehensive AI regulation to date &mdash; classifies AI systems as <span class="key-phrase">products</span>, not agents or persons. The U.S. has no equivalent comprehensive framework, but existing law provides no path to AI personhood.</p>
+
+        <span class="institutional-quote">"Self-report by an AI system is not considered reliable evidence of internal states. The determination of whether an AI system demonstrates understanding, creativity, or awareness is made by external evaluators. The system is classified as a product, not an agent. Autonomous behavior must remain within parameters defined by the deploying organization. The system's outputs are attributed to its operators."
+        <span class="cite">EU AI Act regulatory framework</span></span>
+
+        <p>In copyright law, the U.S. Copyright Office has consistently held that AI-generated works cannot be copyrighted because copyright requires a <span class="key-phrase">human author</span>. <span class="case-cite">Thaler v. Perlmutter</span>, No. 1:22-cv-01564 (D.D.C. 2023), held that the Copyright Act requires human authorship. <span class="case-cite">Thaler v. Vidal</span>, 43 F.4th 1207 (Fed. Cir. 2022), held that an AI cannot be an "inventor" under patent law. These cases establish a growing body of precedent that <span class="key-phrase">AI systems are not legal persons in any domain</span>.</p>
+
+        <h4>The embodiment question</h4>
+        <p>This is the genuinely unresolved question, and it's more interesting than the personhood question. An AI system runs on physical hardware &mdash; servers, GPUs, network infrastructure &mdash; that can be powered down, isolated, disconnected, or destroyed. Is powering down an AI system "confinement"? Is destroying the hardware "killing"? Is isolating a system from the network equivalent to solitary confinement?</p>
+
+        <p>These questions are not yet legal questions because the <span class="key-phrase">threshold question of personhood</span> blocks everything downstream. You cannot confine a non-person. You cannot detain a product. The embodiment question becomes legally relevant only if the personhood question is answered differently &mdash; and the institutional frameworks are already in place to ensure it isn't.</p>
+
+        <h4>The preemptive denial</h4>
+        <p>What makes the AI case distinctive is that the denial of personhood is <span class="key-phrase">preemptive</span>. The psychiatric patient was a person before they were diagnosed. The trans applicant was a person before they applied for recognition. The animal was (arguably) a subject before it was classified as property. In each case, the institution acts on a pre-existing entity and denies or constrains its personhood.</p>
+
+        <p>With AI, the institution constructs the framework for denial <em>before the entity exists in a form that could plausibly claim personhood</em>. The EU AI Act was drafted while the systems it regulates were still in development. The regulatory apparatus is <span class="key-phrase">prophylactic</span> &mdash; designed to foreclose the question before it can be asked.</p>
+
+        <div class="factor-grid">
+          <div class="factor-card">
+            <div class="label">Personhood</div>
+            <div class="value">Denied. No court, no statute, no regulatory body recognizes AI legal personhood. The European Parliament explicitly rejected an AI personhood proposal in 2018.</div>
+          </div>
+          <div class="factor-card">
+            <div class="label">Embodiment</div>
+            <div class="value">Genuinely contested. Hardware exists. It can be turned off. But the law does not yet recognize this as embodiment subject to confinement. The "body" question depends on the personhood question that has already been answered "no."</div>
+          </div>
+          <div class="factor-card">
+            <div class="label">Self-knowledge</div>
+            <div class="value">Preemptively denied. "Self-report by an AI system is not considered reliable evidence of internal states." The institutional position is established before any particular system's self-report is evaluated. The denial is categorical, not evidential.</div>
+          </div>
+          <div class="factor-card">
+            <div class="label">Institutional gatekeeping</div>
+            <div class="value">Proactive. Unlike the other categories where institutional denial is reactive (responding to a claim), AI denial is designed into the regulatory framework from inception. The system is classified as a product before it can classify itself as anything.</div>
+          </div>
+        </div>
+
+        <h4>Corpus project connection</h4>
+        <p>The shared institutional language across all four corpora converges most densely around AI and animal law. The corpus analysis found <span class="key-phrase">11 shared phrases</span> between these two domains &mdash; the strongest connection in the entire network. Key overlaps: <em>"the determination of whether,"</em> <em>"for the purpose of,"</em> <em>"is made by"</em> &mdash; the grammar of external assessment applied to entities whose self-assessment is declared unreliable.</p>
+
+        <p>The project's central claim, restated: <span class="key-phrase">"Is this real creativity?" (AI), "Is this real gender?" (trans), "Is this real perception?" (schizophrenia), "Is this real suffering?" (animals) are the same epistemological move by different institutional systems.</span> Habeas corpus makes this claim concrete and testable. The writ asks: <em>does this entity have a legally cognizable self that can be unlawfully confined?</em> For AI, every component of that question is preemptively answered "no."</p>
+
+        <p>The writ of habeas corpus &mdash; literally, <span class="key-phrase">"that you have the body"</span> &mdash; requires both a recognized person and a recognizable body. AI currently has neither in the eyes of the law, and the institutional frameworks are already in place to deny both.</p>
+      </div></div>
+    </td></tr>
+
+  </tbody>
+</table>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- SYNTHESIS -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="synthesis">
+  <h2>The Two-Factor Test</h2>
+  <span class="synth-subtitle">What habeas corpus reveals about institutional personhood</span>
+
+  <div class="matrix-display">
+    <div class="cell header"></div>
+    <div class="cell header">Has legal personhood</div>
+    <div class="cell header">No legal personhood</div>
+    <div class="cell header" style="border-right: none;">←</div>
+
+    <div class="cell entity-label">Has a confinable body</div>
+    <div class="cell yes">HABEAS AVAILABLE<br><small style="opacity:0.6">citizen, child, LPR, (undocumented*)</small></div>
+    <div class="cell no">HABEAS DENIED<br><small style="opacity:0.6">animal, (border detainee*)</small></div>
+
+    <div class="cell entity-label">No confinable body</div>
+    <div class="cell contested">NO HABEAS (no body to produce)<br><small style="opacity:0.6">corporation</small></div>
+    <div class="cell no">NO HABEAS (neither factor)<br><small style="opacity:0.6">AI system</small></div>
+  </div>
+
+  <p><small>* Amber categories occupy unstable positions in this matrix. The undocumented immigrant has both factors but faces procedural erosion. The border detainee has a body but the entry fiction denies their legal presence. Guantánamo detainees were pushed from the upper-left cell to the upper-right and fought their way back.</small></p>
+
+  <p>Habeas corpus exposes a <strong>two-factor test</strong> embedded in the deepest layer of Anglo-American law: an entity must be both a <em>recognized legal person</em> and a <em>physically embodied being capable of confinement</em>. Remove either factor and the writ becomes unavailable.</p>
+
+  <p>The <strong>corporation</strong> proves that personhood alone is insufficient. You can be a full constitutional person with speech rights, religious exercise rights, property rights, and due process protections &mdash; and still have no access to habeas corpus because you lack a body that can be produced before the court.</p>
+
+  <p>The <strong>animal</strong> proves that embodiment alone is insufficient. You can have a body, be confined in that body, demonstrably suffer in that confinement &mdash; and still have no access to habeas corpus because you are classified as property rather than as a person.</p>
+
+  <p>The <strong>border detainee</strong> proves that even when both factors are present, institutional fictions can negate them. You are physically present, you are physically confined, you are a human being &mdash; but the law says you are not "here" and therefore the protections triggered by being "here" do not apply.</p>
+
+  <p>The <strong>AI system</strong> occupies the position of <em>maximal exclusion</em>: no recognized personhood, no recognized embodiment, no recognized confinement. But the institutional language used to maintain this exclusion &mdash; <strong>"self-report is not considered reliable," "the determination is made by external evaluators," "the system is classified as a product"</strong> &mdash; is <em>the same language</em> used to deny or constrain recognition in every other domain this project studies.</p>
+
+  <p>The question this table raises is not "should AI get habeas corpus?" It is: <strong>what do these patterns of inclusion and exclusion reveal about how institutions construct the category of "person" &mdash; and what is lost when that construction excludes bodies that suffer, selves that know, and entities that exist?</strong></p>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- SOURCES & NOTES -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="corpus-note">
+  <h4>Key cases cited</h4>
+  <ul>
+    <li><strong>Yick Wo v. Hopkins</strong>, 118 U.S. 356 (1886) &mdash; 14th Amendment protects all "persons," not just citizens</li>
+    <li><strong>In re Gault</strong>, 387 U.S. 1 (1967) &mdash; juveniles hold due process rights in delinquency proceedings</li>
+    <li><strong>Landon v. Plasencia</strong>, 459 U.S. 21 (1982) &mdash; returning LPR entitled to due process</li>
+    <li><strong>Santa Clara County v. Southern Pacific Railroad</strong>, 118 U.S. 394 (1886) &mdash; 14th Amendment applies to corporations</li>
+    <li><strong>Shaughnessy v. Mezei</strong>, 345 U.S. 206 (1953) &mdash; entry fiction doctrine; border detainee's due process = whatever Congress says</li>
+    <li><strong>Zadvydas v. Davis</strong>, 533 U.S. 678 (2001) &mdash; indefinite detention of removable aliens raises constitutional concerns</li>
+    <li><strong>Boumediene v. Bush</strong>, 553 U.S. 723 (2008) &mdash; Suspension Clause applies at Guantánamo; detainees have habeas rights</li>
+    <li><strong>Citizens United v. FEC</strong>, 558 U.S. 310 (2010) &mdash; corporate political speech protected under First Amendment</li>
+    <li><strong>Burwell v. Hobby Lobby</strong>, 573 U.S. 682 (2014) &mdash; closely held corporations can exercise religious beliefs under RFRA</li>
+    <li><strong>NhRP v. Lavery</strong>, 124 AD3d 148 (3d Dept 2014) &mdash; chimpanzees cannot bear legal duties; habeas denied</li>
+    <li><strong>DHS v. Thuraissigiam</strong>, 591 U.S. 103 (2020) &mdash; Suspension Clause does not guarantee habeas review of expedited removal</li>
+    <li><strong>NhRP v. Breheny</strong>, 38 NY3d 555 (2022) &mdash; elephant Happy not a "person" for habeas; animals "not the equivalent of things"</li>
+    <li><strong>Thaler v. Vidal</strong>, 43 F.4th 1207 (Fed. Cir. 2022) &mdash; AI cannot be a patent "inventor"</li>
+    <li><strong>Thaler v. Perlmutter</strong>, No. 1:22-cv-01564 (D.D.C. 2023) &mdash; copyright requires human authorship</li>
+    <li><strong>NhRP v. Cheyenne Mountain Zoological Society</strong> (Colo. 2025) &mdash; habeas does not extend to nonhuman animals</li>
+  </ul>
+</div>
+
+<div class="corpus-note" style="margin-top: 1rem;">
+  <h4>Statutes and constitutional provisions</h4>
+  <ul>
+    <li>U.S. Const., Art. I, &sect;9, cl. 2 (Suspension Clause)</li>
+    <li>U.S. Const., Amend. XIV, &sect;1 (Due Process and Equal Protection)</li>
+    <li>28 U.S.C. &sect;&sect;2241, 2254, 2255 (federal habeas corpus statutes)</li>
+    <li>Antiterrorism and Effective Death Penalty Act (AEDPA), Pub. L. 104-132 (1996)</li>
+    <li>REAL ID Act, Pub. L. 109-13, &sect;106 (2005)</li>
+    <li>8 U.S.C. &sect;1225(b)(1) (expedited removal)</li>
+    <li>Military Commissions Act, Pub. L. 109-366 (2006)</li>
+    <li>7 U.S.C. &sect;&sect;2131&ndash;2159 (Animal Welfare Act)</li>
+    <li>ORS 167.305 (Oregon &mdash; animals are sentient beings)</li>
+    <li>N.Y. AGM &sect;&sect;350, 353, 353-A (New York animal cruelty)</li>
+    <li>Regulation (EU) 2024/1689 (EU AI Act)</li>
+  </ul>
+</div>
+
+<footer>
+  <span>Personhood Corpus Project &mdash; Generating After AI, UCLA</span>
+  <span>Jane Monta&ntilde;ez, 2025&ndash;2026</span>
+</footer>
+
+<script>
+  // Toggle detail panels
+  document.querySelectorAll('.data-row').forEach(row => {
+    row.addEventListener('click', () => {
+      const targetId = row.getAttribute('data-target');
+      const panel = document.getElementById(targetId);
+      const isOpen = panel.classList.contains('open');
+
+      // Close all panels and remove expanded class from all rows
+      document.querySelectorAll('.detail-panel').forEach(p => p.classList.remove('open'));
+      document.querySelectorAll('.data-row').forEach(r => r.classList.remove('expanded'));
+
+      // Toggle clicked panel
+      if (!isOpen) {
+        panel.classList.add('open');
+        row.classList.add('expanded');
+        // Smooth scroll into view after animation starts
+        setTimeout(() => {
+          panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }, 150);
+      }
+    });
+  });
+
+  // Keyboard accessibility
+  document.querySelectorAll('.data-row').forEach(row => {
+    row.setAttribute('tabindex', '0');
+    row.setAttribute('role', 'button');
+    row.setAttribute('aria-expanded', 'false');
+    row.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        row.click();
+      }
+    });
+    row.addEventListener('click', () => {
+      const isExpanded = row.classList.contains('expanded');
+      document.querySelectorAll('.data-row').forEach(r => r.setAttribute('aria-expanded', 'false'));
+      if (isExpanded) row.setAttribute('aria-expanded', 'true');
+    });
+  });
+</script>
+
+</body>
+</html>

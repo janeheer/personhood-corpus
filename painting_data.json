@@ -1,0 +1,333 @@
+{
+  "heatmap": {
+    "psychiatric": {
+      "assessment": 8,
+      "authority": 5,
+      "denial_of_self_knowledge": 3,
+      "institutional_power": 9,
+      "personhood_status": 6,
+      "capacity": 19
+    },
+    "gender_law": {
+      "assessment": 6,
+      "authority": 15,
+      "denial_of_self_knowledge": 3,
+      "institutional_power": 7,
+      "personhood_status": 14,
+      "capacity": 2
+    },
+    "animal_law": {
+      "assessment": 8,
+      "authority": 2,
+      "denial_of_self_knowledge": 2,
+      "institutional_power": 18,
+      "personhood_status": 50,
+      "capacity": 16
+    },
+    "ai_regulation": {
+      "assessment": 12,
+      "authority": 4,
+      "denial_of_self_knowledge": 2,
+      "institutional_power": 9,
+      "personhood_status": 23,
+      "capacity": 9
+    }
+  },
+  "shared_phrases": [
+    {
+      "phrase": "by trained professionals",
+      "domains": [
+        "psychiatric",
+        "animal_law"
+      ]
+    },
+    {
+      "phrase": "for the purpose of",
+      "domains": [
+        "animal_law",
+        "ai_regulation"
+      ]
+    },
+    {
+      "phrase": "include at least",
+      "domains": [
+        "psychiatric",
+        "animal_law"
+      ]
+    },
+    {
+      "phrase": "of whether an",
+      "domains": [
+        "animal_law",
+        "ai_regulation"
+      ]
+    },
+    {
+      "phrase": "the law and",
+      "domains": [
+        "psychiatric",
+        "ai_regulation"
+      ]
+    },
+    {
+      "phrase": "to be used in",
+      "domains": [
+        "psychiatric",
+        "ai_regulation"
+      ]
+    },
+    {
+      "phrase": "to be used by",
+      "domains": [
+        "psychiatric",
+        "ai_regulation"
+      ]
+    },
+    {
+      "phrase": "be used in",
+      "domains": [
+        "psychiatric",
+        "ai_regulation"
+      ]
+    },
+    {
+      "phrase": "under the law",
+      "domains": [
+        "gender_law",
+        "animal_law"
+      ]
+    },
+    {
+      "phrase": "on the basis of",
+      "domains": [
+        "gender_law",
+        "ai_regulation"
+      ]
+    },
+    {
+      "phrase": "has been found",
+      "domains": [
+        "psychiatric",
+        "ai_regulation"
+      ]
+    },
+    {
+      "phrase": "with the requirements",
+      "domains": [
+        "gender_law",
+        "ai_regulation"
+      ]
+    },
+    {
+      "phrase": "has been found to",
+      "domains": [
+        "psychiatric",
+        "ai_regulation"
+      ]
+    },
+    {
+      "phrase": "is made by",
+      "domains": [
+        "animal_law",
+        "ai_regulation"
+      ]
+    },
+    {
+      "phrase": "the time of",
+      "domains": [
+        "psychiatric",
+        "gender_law"
+      ]
+    },
+    {
+      "phrase": "the determination of",
+      "domains": [
+        "animal_law",
+        "ai_regulation"
+      ]
+    },
+    {
+      "phrase": "determined by the",
+      "domains": [
+        "gender_law",
+        "ai_regulation"
+      ]
+    },
+    {
+      "phrase": "the determination of whether an",
+      "domains": [
+        "animal_law",
+        "ai_regulation"
+      ]
+    },
+    {
+      "phrase": "at least one",
+      "domains": [
+        "psychiatric",
+        "animal_law"
+      ]
+    },
+    {
+      "phrase": "at the time of",
+      "domains": [
+        "psychiatric",
+        "gender_law"
+      ]
+    },
+    {
+      "phrase": "on the basis",
+      "domains": [
+        "gender_law",
+        "ai_regulation"
+      ]
+    },
+    {
+      "phrase": "is assessed by",
+      "domains": [
+        "psychiatric",
+        "animal_law"
+      ]
+    },
+    {
+      "phrase": "been found to",
+      "domains": [
+        "psychiatric",
+        "ai_regulation"
+      ]
+    },
+    {
+      "phrase": "the use of",
+      "domains": [
+        "psychiatric",
+        "ai_regulation"
+      ]
+    },
+    {
+      "phrase": "as determined by",
+      "domains": [
+        "gender_law",
+        "ai_regulation"
+      ]
+    },
+    {
+      "phrase": "the determination of whether",
+      "domains": [
+        "animal_law",
+        "ai_regulation"
+      ]
+    },
+    {
+      "phrase": "that they are",
+      "domains": [
+        "animal_law",
+        "ai_regulation"
+      ]
+    },
+    {
+      "phrase": "determination of whether an",
+      "domains": [
+        "animal_law",
+        "ai_regulation"
+      ]
+    },
+    {
+      "phrase": "for the purpose",
+      "domains": [
+        "animal_law",
+        "ai_regulation"
+      ]
+    },
+    {
+      "phrase": "subjective experience is",
+      "domains": [
+        "psychiatric",
+        "animal_law"
+      ]
+    },
+    {
+      "phrase": "that an individual",
+      "domains": [
+        "psychiatric",
+        "ai_regulation"
+      ]
+    },
+    {
+      "phrase": "in relation to",
+      "domains": [
+        "gender_law",
+        "ai_regulation"
+      ]
+    },
+    {
+      "phrase": "at the time",
+      "domains": [
+        "psychiatric",
+        "gender_law"
+      ]
+    },
+    {
+      "phrase": "the purpose of",
+      "domains": [
+        "animal_law",
+        "ai_regulation"
+      ]
+    },
+    {
+      "phrase": "and does not",
+      "domains": [
+        "gender_law",
+        "animal_law"
+      ]
+    },
+    {
+      "phrase": "the basis of",
+      "domains": [
+        "gender_law",
+        "ai_regulation"
+      ]
+    },
+    {
+      "phrase": "determination of whether",
+      "domains": [
+        "animal_law",
+        "ai_regulation"
+      ]
+    },
+    {
+      "phrase": "is not a",
+      "domains": [
+        "gender_law",
+        "animal_law"
+      ]
+    },
+    {
+      "phrase": "be used by",
+      "domains": [
+        "psychiatric",
+        "ai_regulation"
+      ]
+    },
+    {
+      "phrase": "the united states",
+      "domains": [
+        "gender_law",
+        "animal_law"
+      ]
+    },
+    {
+      "phrase": "to be used",
+      "domains": [
+        "psychiatric",
+        "ai_regulation"
+      ]
+    }
+  ],
+  "edges": {
+    "ai_regulation <-> animal_law": 11,
+    "ai_regulation <-> psychiatric": 11,
+    "ai_regulation <-> gender_law": 7,
+    "animal_law <-> psychiatric": 5,
+    "animal_law <-> gender_law": 4,
+    "gender_law <-> psychiatric": 3
+  }
+}
